@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.timezone import localtime
 
+
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -15,7 +16,7 @@ class Passcard(models.Model):
 
 class Visit(models.Model):
     created_at = models.DateTimeField(auto_now=True)
-    passcard = models.ForeignKey(Passcard, on_delete=models.CASCADE)
+    passcard = models.ForeignKey(Passcard, on_delete=models.CASCADE) # вторичная модель
     entered_at = models.DateTimeField()
     leaved_at = models.DateTimeField(null=True)
 
