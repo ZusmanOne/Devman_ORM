@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.utils.timezone import localtime
 
 
-def get_duration(visit):
+def get_duration(visit):  # высчитывает время проведенное в хранилище
     now = localtime()
     if visit.leaved_at:
         visit_at = localtime(visit.leaved_at) - localtime(visit.entered_at)
@@ -14,7 +14,7 @@ def get_duration(visit):
         return visit_at.total_seconds()
 
 
-def format_duration(duration):
+def format_duration(duration):  # форматирует в часы минуты и тд
     duration_hours = int(duration) // 3600
     duration_minutes = int((duration % 3600)) // 60
     return "%sч : %sм " % (duration_hours, duration_minutes)
