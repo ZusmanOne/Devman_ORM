@@ -4,18 +4,16 @@ from django.shortcuts import render
 from .storage_information_view import format_duration, get_duration
 
 
-def passcard_info_view(request, passcode):
+def passcard_info_view(request, passcode, second_hour=3600):
     passcard = Passcard.objects.get(passcode=passcode)
-    visit = Visit.objects.filter(passcard=passcard)
-
-    # Программируем здесь
-
+    visits = Visit.objects.filter(passcard=passcard)
     this_passcard_visits = []
-    for client in visit:
-        is_strange = get_duration(client) // 3600 >= 1
-        this_passcard_visits.append({'entered_at':client.entered_at,
+    limit_hour = 1
+    for client in visits:
+        is_strange = get_duration(client) // second_hour >= limit_hour
+        this_passcard_visits.append({'entered_at': client.entered_at,
                                      'duration': format_duration(get_duration(client)),
-                                     'is_strange' : is_strange,
+                                     'is_strange': is_strange,
                                      })
 
     context = {
