@@ -1,22 +1,24 @@
-from datacenter.models import Passcard
 from datacenter.models import Visit
 from django.shortcuts import render
 from django.utils.timezone import localtime
 
+seconds_in_hour = 3600
+minutes_in_hour = 60
+
 
 def get_duration(visit):
-    now = localtime()
+    now_time = localtime()
     if visit.leaved_at:
         visit_time = localtime(visit.leaved_at) - localtime(visit.entered_at)
         return visit_time.total_seconds()
     else:
-        visit_active = now - localtime(visit.entered_at)
+        visit_active = now_time - localtime(visit.entered_at)
         return visit_active.total_seconds()
 
 
-def format_duration(duration, second_hour=3600, minute_hour=60):
-    duration_hours = int(duration) // second_hour
-    duration_minutes = int(duration % second_hour) // minute_hour
+def format_duration(duration):
+    duration_hours = int(duration) // seconds_in_hour
+    duration_minutes = int(duration % seconds_in_hour) // minutes_in_hour
     return "%sч : %sм " % (duration_hours, duration_minutes)
 
 
