@@ -19,7 +19,7 @@ def get_duration(visit):
 def format_duration(duration):
     duration_hours = int(duration) // SECONDS_IN_HOUR
     duration_minutes = int(duration % SECONDS_IN_HOUR) // MINUTES_IN_HOUR
-    return "%sч : %sм " % (duration_hours, duration_minutes)
+    return f'{duration_hours}ч : {duration_minutes}м'
 
 
 def storage_information_view(request):
