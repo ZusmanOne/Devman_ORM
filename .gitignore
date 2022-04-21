@@ -159,6 +159,8 @@ dmypy.json
 cython_debug/
 django-orm-watching-storage/poetry.lock
 django-orm-watching-storage/pyproject.toml
+.idea
+django-orm-watching-storage/.replit
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
