@@ -9,7 +9,7 @@
 
 - Скачайте код 
 ```console 
-  https://github.com/ZusmanOne/Devman_ORM
+   git clone https://github.com/ZusmanOne/Devman_ORM
   ```
 - создайте виртуальное окружение командой
 ```console
