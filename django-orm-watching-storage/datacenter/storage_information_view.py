@@ -25,10 +25,10 @@ def format_duration(duration):
 def storage_information_view(request):
     not_outs = Visit.objects.filter(leaved_at=None)
     serialized_visits = []
-    for i in not_outs:
-        serialized_visits.append({'who_entered': i.passcard,
-                                  'entered_at': i.entered_at,
-                                  'duration': format_duration(get_duration(i)),
+    for client in not_outs:
+        serialized_visits.append({'who_entered': client.passcard,
+                                  'entered_at': client.entered_at,
+                                  'duration': format_duration(get_duration(client)),
                                   }),
 
     context = {

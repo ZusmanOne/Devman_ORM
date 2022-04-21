@@ -157,6 +157,8 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+django-orm-watching-storage/poetry.lock
+django-orm-watching-storage/pyproject.toml
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
